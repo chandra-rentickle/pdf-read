@@ -7,7 +7,7 @@ app.use(express.json());
 const cors = require("cors");
 app.use(cors());
 // Serve static files from the React app 
-app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.use(express.static(path.join(__dirname, './frontend/build')));
 app.use("/files", express.static("files"));
 //mongodb connection----------------------------------------------
 const uri = process.env.MONGO_URI
@@ -60,7 +60,7 @@ app.get("/get-files", async (req, res) => {
 
 // Serve React app 
 
-app.get('*', (req, res) => { res.sendFile(path.join(__dirname, '../frontend/build', 'index.html')); });
+app.get('*', (req, res) => { res.sendFile(path.join(__dirname, './frontend/build/index.html'))});
 
 //apis----------------------------------------------------------------
 app.get("/", async (req, res) => {
